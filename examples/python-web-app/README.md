@@ -1,7 +1,9 @@
 1. We are using **Minikube** so we need to run below command before creating image.
 
  ``` $ eval $(minikube docker-env) ```
-   
+
+  Ref: https://stackoverflow.com/questions/56392041/getting-errimageneverpull-in-pods
+  
    This will use the minikube docker-env for the current session.
    
 3. Create a docker image.
