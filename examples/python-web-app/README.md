@@ -9,7 +9,7 @@
    **$ docker build -t python-demo-app:v1 .**
 
 5. Create a **Deployment**
-   $ kubectl apply -f deployment.yml
+  ``` $ kubectl apply -f deployment.yml ```
 
 6. Verify the Deployment
 
