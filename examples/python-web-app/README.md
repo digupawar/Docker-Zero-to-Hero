@@ -1,12 +1,12 @@
 1. We are using **Minikube** so we need to run below command before creating image.
 
- ```  **$ eval $(minikube docker-env)** ```
+ ``` $ eval $(minikube docker-env) ```
    
    This will use the minikube docker-env for the current session.
    
 3. Create a docker image.
    
-  ``` **$ docker build -t python-demo-app:v1 .** ```
+  ``` $ docker build -t python-demo-app:v1 . ```
 
 5. Create a **Deployment**
    
@@ -14,7 +14,7 @@
 
 7. Verify the Deployment
 
-  ``` **$ kubectl get deploy** ```
+  ``` $ kubectl get deploy ```
 
     ubuntu@ip-172-31-50-106:~/k8s/Docker-Zero-to-Hero/examples/python-web-app$ ``` kubectl get deploy ```
 
@@ -27,7 +27,7 @@
 
 8. Verify Pods
 
-  ```  **$ kubectl get pod** ```
+  ``` $ kubectl get pod ```
 
    ubuntu@ip-172-31-50-106:~/k8s/Docker-Zero-to-Hero/examples/python-web-app$ ``` kubectl get pod ```
 
@@ -43,7 +43,7 @@
 
 10. Verify pods with more details.
 
-   ``` **$ kubectl get pod -o wide** ```
+   ``` $ kubectl get pod -o wide ```
 
 ubuntu@ip-172-31-50-106:~/k8s/Docker-Zero-to-Hero/examples/python-web-app$ ``` kubectl get pod -o wide ```
 
@@ -69,7 +69,7 @@ ubuntu@ip-172-31-50-106:~/k8s/Docker-Zero-to-Hero/examples/python-web-app$ ``` k
 
 12. Verify Service.
 
-``` $**kubectl get svc** ```
+``` $ kubectl get svc ```
 
    ubuntu@ip-172-31-50-106:~/k8s/Docker-Zero-to-Hero/examples/python-web-app$ ``` kubectl get svc ```
 
@@ -79,19 +79,19 @@ ubuntu@ip-172-31-50-106:~/k8s/Docker-Zero-to-Hero/examples/python-web-app$ ``` k
    
    kubernetes   ClusterIP   10.96.0.1       <none>        443/TCP        123m
    
-   **my-service   NodePort    10.100.42.148   <none>        80:30007/TCP   62m**
+   my-service   NodePort    10.100.42.148   <none>        80:30007/TCP   62m
 
 ```
 
 14. Get Minikube ip and check, if you are using K8s Cluster using **kOps**, Identify EC2 instance ip and check.
 
-    ```  ubuntu@ip-172-31-50-106:~/k8s/Docker-Zero-to-Hero/examples/python-web-app$ **minikube ip** ```
+  ```  ubuntu@ip-172-31-50-106:~/k8s/Docker-Zero-to-Hero/examples/python-web-app$ ``` minikube ip ```
 
-   ```  **192.168.49.2** ```
+   ``` 192.168.49.2 ```
 
 16. Access above IP and verify the url like below and it should display the output.
 
-  ```  $ curl -L http://192.168.49.2:30007/demo ```
+  ``` $ curl -L http://192.168.49.2:30007/demo ```
 
    
 
