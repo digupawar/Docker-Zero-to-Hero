@@ -95,4 +95,36 @@ ubuntu@ip-172-31-50-106:~/k8s/Docker-Zero-to-Hero/examples/python-web-app$ ``` k
 
   ``` $ curl -L http://192.168.49.2:30007/demo ```
 
-   
+  **Now We will look into Ingress & Ingress Controller**
+
+  1. Create a **Ingress** resource by creating **ingress.yml** file.
+
+     ``` kubectl apply -f ingress.yml ```
+
+  2. Verify Ingress resource.
+
+     ```
+        ubuntu@ip-172-31-60-227:~/Docker-Zero-to-Hero/examples/python-web-app$ kubectl get ingress
+         NAME              CLASS    HOSTS         ADDRESS        PORTS   AGE
+         ingress-example   <none>   foo.bar.com   192.168.49.2   80      4h7m
+     ```
+
+  3. Create a **Ingress Controller**, use below command If you are using **Minikube**
+
+     ``` minikube addons enable ingress ```
+
+     ref: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
+
+   4. Get **Minikube IP** and add host, in our case host is **foo.bar.com** in  **/etc/hosts** file like below.
+
+      ``` 192.168.49.2 foo.bar.com ```
+
+   5. Now Verify that the **Ingress controller** is directing traffic
+
+      ``` curl -L "http://foo.bar.com/demo" ```
+
+       **You should see:**
+
+      ![image](https://github.com/digupawar/Docker-Zero-to-Hero/assets/72307345/b3e61ad2-86d8-4944-8b38-db3cb18166b5)
+
+
