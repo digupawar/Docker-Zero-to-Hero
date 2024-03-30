@@ -109,7 +109,8 @@ ubuntu@ip-172-31-50-106:~/k8s/Docker-Zero-to-Hero/examples/python-web-app$ ``` k
          ingress-example   <none>   foo.bar.com   192.168.49.2   80      4h7m
      ```
 
-  3. Create a **Ingress Controller**, use below command If you are using **Minikube**
+  3. In order to work Ingress resource, cluster must have an Ingress Controller so create a **Ingress Controller**, use below command If 
+     you are using **Minikube**
 
      ``` minikube addons enable ingress ```
 
