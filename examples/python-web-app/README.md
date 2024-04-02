@@ -129,3 +129,47 @@ ubuntu@ip-172-31-50-106:~/k8s/Docker-Zero-to-Hero/examples/python-web-app$ ``` k
       ![image](https://github.com/digupawar/Docker-Zero-to-Hero/assets/72307345/b3e61ad2-86d8-4944-8b38-db3cb18166b5)
 
 
+
+      **This section is about ConfigMaps and Secrets**
+
+   1. Create a **ConfigMap** resource by creating **configmap.yml** file
+
+        ``` kubectl apply -f configmap.yml ```
+
+   2. Verify ConfigMap resouce.
+
+         ```
+             ubuntu@ip-172-31-61-191:~/Docker-Zero-to-Hero/examples/python-web-app$ kubectl get cm
+             NAME               DATA   AGE
+             kube-root-ca.crt   1      4h38m
+             python-app         1      153m
+         ```
+
+   3. Create deployment
+
+        ``` kubectl apply -f deployment.yml ```
+
+   5. Get the pods
+
+      ```
+      ubuntu@ip-172-31-61-191:~/Docker-Zero-to-Hero/examples/python-web-app$ kubectl get po -o wide
+      NAME                                 READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+      sample-python-app-74c4b8bccf-8gjrj   1/1     Running   0          92m   10.244.0.7   minikube   <none>           <none>
+      sample-python-app-74c4b8bccf-t2f8d   1/1     Running   0          84m   10.244.0.8   minikube   <none>           <none>
+      
+     ```
+
+     5. Access any one pod and check Configmap/secrets info.
+
+       ``` 
+          kubectl exec -it sample-python-app-74c4b8bccf-8gjrj -- /bin/bash
+          root@sample-python-app-74c4b8bccf-8gjrj:/app# more /opt/db-pass
+          xyz@123
+        
+       ```
+
+     Note: If you are creating **ConfigMap**, plain text we can give in configmap.yml file but if we are creating **Secrets**, we have 
+           to give secret as a base64 format in secrets.yml file. Please refer respective files.
+
+
+
